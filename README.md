@@ -6,7 +6,7 @@ This repository documents a futures market intelligence research and development
 
 The project focuses on transforming futures, physical commodity, positioning, and intraday market-structure data into structured trading intelligence. The core work centers on data-driven futures analysis, basis sentiment interpretation, order-flow behavior, and market structure signal construction.
 
-Rather than building generic AI prompts, this project emphasizes the analytical layer behind market intelligence generation: identifying actionable trading signals, defining market structure logic, validating commodity data inputs, and converting futures-market observations into standardized intelligence outputs.
+The project emphasizes the analytical layer behind market intelligence generation: identifying actionable trading signals, defining market structure logic, validating commodity data inputs, and converting futures-market observations into standardized intelligence outputs.
 
 ## Core Areas
 
