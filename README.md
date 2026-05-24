@@ -1,4 +1,4 @@
-# Matrixx-AI
+# Metrixx-AI
 
 This repository documents a futures market intelligence research and development project for **Metrixx AI**, focusing on futures data analysis, market structure research, and trading signal framework development for the MY DESK market intelligence platform.
 
