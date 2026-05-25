@@ -1,0 +1,161 @@
+{
+  "validated_at": "2026-05-25T20:10:02+00:00",
+  "stage": "CFTC_COT_SCORING_V1_2_VALIDATION",
+  "all_scoring_valid": true,
+  "total_score_records": 1092,
+  "target_symbols": [
+    "CL",
+    "NG",
+    "ZC",
+    "ZS",
+    "ZW",
+    "GC",
+    "SI"
+  ],
+  "score_range": [
+    -5,
+    5
+  ],
+  "score_formula": "cot_score_base = clamp(2.0*MM + 1.5*PM + 1.0*Impulse, -5, +5); Legacy is gate only.",
+  "legacy_policy": "Legacy COT is not weighted into the score. It confirms, remains neutral, or rejects strong conflicting base signals.",
+  "signal_enum": [
+    "bearish_positioning",
+    "bullish_positioning",
+    "insufficient_data",
+    "mildly_bearish",
+    "mildly_bullish",
+    "neutral"
+  ],
+  "base_direction_enum": [
+    "bearish",
+    "bullish",
+    "neutral"
+  ],
+  "legacy_direction_enum": [
+    "bearish",
+    "bullish",
+    "neutral",
+    "unknown"
+  ],
+  "legacy_status_enum": [
+    "CONFIRMED",
+    "CONFLICT",
+    "NEUTRAL",
+    "NOT_APPLICABLE",
+    "UNKNOWN"
+  ],
+  "commodity_results": [
+    {
+      "instrument": "CL",
+      "ok": true,
+      "score_record_count": 156,
+      "latest_report_date": "2026-05-19",
+      "latest_cot_score_base": 4.0,
+      "latest_cot_score": 4.0,
+      "latest_cot_signal": "bullish_positioning",
+      "latest_confidence": "medium",
+      "latest_base_direction": "bullish",
+      "latest_legacy_direction": "neutral",
+      "latest_legacy_confirmation_status": "NEUTRAL",
+      "latest_score_status": "ACCEPTED_LEGACY_NEUTRAL",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "instrument": "NG",
+      "ok": true,
+      "score_record_count": 156,
+      "latest_report_date": "2026-05-19",
+      "latest_cot_score_base": 4.5,
+      "latest_cot_score": 4.5,
+      "latest_cot_signal": "bullish_positioning",
+      "latest_confidence": "high",
+      "latest_base_direction": "bullish",
+      "latest_legacy_direction": "bullish",
+      "latest_legacy_confirmation_status": "CONFIRMED",
+      "latest_score_status": "ACCEPTED_LEGACY_CONFIRMED",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "instrument": "ZC",
+      "ok": true,
+      "score_record_count": 156,
+      "latest_report_date": "2026-05-19",
+      "latest_cot_score_base": -5.0,
+      "latest_cot_score": -5.0,
+      "latest_cot_signal": "bearish_positioning",
+      "latest_confidence": "high",
+      "latest_base_direction": "bearish",
+      "latest_legacy_direction": "bearish",
+      "latest_legacy_confirmation_status": "CONFIRMED",
+      "latest_score_status": "ACCEPTED_LEGACY_CONFIRMED",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "instrument": "ZS",
+      "ok": true,
+      "score_record_count": 156,
+      "latest_report_date": "2026-05-19",
+      "latest_cot_score_base": -5.0,
+      "latest_cot_score": -5.0,
+      "latest_cot_signal": "bearish_positioning",
+      "latest_confidence": "high",
+      "latest_base_direction": "bearish",
+      "latest_legacy_direction": "bearish",
+      "latest_legacy_confirmation_status": "CONFIRMED",
+      "latest_score_status": "ACCEPTED_LEGACY_CONFIRMED",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "instrument": "ZW",
+      "ok": true,
+      "score_record_count": 156,
+      "latest_report_date": "2026-05-19",
+      "latest_cot_score_base": -5.0,
+      "latest_cot_score": -5.0,
+      "latest_cot_signal": "bearish_positioning",
+      "latest_confidence": "high",
+      "latest_base_direction": "bearish",
+      "latest_legacy_direction": "bearish",
+      "latest_legacy_confirmation_status": "CONFIRMED",
+      "latest_score_status": "ACCEPTED_LEGACY_CONFIRMED",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "instrument": "GC",
+      "ok": true,
+      "score_record_count": 156,
+      "latest_report_date": "2026-05-19",
+      "latest_cot_score_base": 4.0,
+      "latest_cot_score": 4.0,
+      "latest_cot_signal": "bullish_positioning",
+      "latest_confidence": "high",
+      "latest_base_direction": "bullish",
+      "latest_legacy_direction": "bullish",
+      "latest_legacy_confirmation_status": "CONFIRMED",
+      "latest_score_status": "ACCEPTED_LEGACY_CONFIRMED",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "instrument": "SI",
+      "ok": true,
+      "score_record_count": 156,
+      "latest_report_date": "2026-05-19",
+      "latest_cot_score_base": 5.0,
+      "latest_cot_score": 5.0,
+      "latest_cot_signal": "bullish_positioning",
+      "latest_confidence": "medium",
+      "latest_base_direction": "bullish",
+      "latest_legacy_direction": "neutral",
+      "latest_legacy_confirmation_status": "NEUTRAL",
+      "latest_score_status": "ACCEPTED_LEGACY_NEUTRAL",
+      "errors": [],
+      "warnings": []
+    }
+  ]
+}
