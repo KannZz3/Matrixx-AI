@@ -1,0 +1,186 @@
+{
+  "validated_at": "2026-05-25T05:19:21+00:00",
+  "stage": "USDA_STEP5_UNIFIED_LIGHT_VALIDATION",
+  "all_required_ok": true,
+  "total_records": 180,
+  "document_targets": [
+    "CORN_DECATUR handled as CORN_DECATUR_PROXY",
+    "CORN_GULF handled as CORN_GULF_PROXY",
+    "SOYBEAN_MEAL strict",
+    "HRW_WHEAT strict",
+    "SRW_WHEAT strict",
+    "CORN_COUNTRY_ELEVATOR_OK_FALLBACK included as additional corn fallback/provenance check"
+  ],
+  "corn_mapping_note": "Strict Decatur/Gulf corn bid records were not found in prior USDA MARS broad search. Corn outputs are explicitly labeled as PROXY/FALLBACK and should not be represented as strict Decatur/Gulf data.",
+  "required_output_fields": [
+    "source_id",
+    "instrument",
+    "delivery_point",
+    "timestamp",
+    "data_type",
+    "value",
+    "unit",
+    "basis_vs_futures",
+    "futures_contract",
+    "tos_status",
+    "gatekeeper_cleared",
+    "gatekeeper_id",
+    "raw_source_url",
+    "series_key",
+    "document_target",
+    "slug_id",
+    "report_title",
+    "commodity_raw",
+    "source_mapping_status"
+  ],
+  "validation_rules": {
+    "common": [
+      "source_id/instrument/delivery_point/timestamp/data_type/value/unit required",
+      "value must be numeric and > 0",
+      "basis_vs_futures must be null before futures leg",
+      "futures_contract must be null before futures leg",
+      "raw_source_url, slug_id, report_title required for provenance"
+    ],
+    "corn": "commodity=Corn, sale_type=Bid, unit=USD_PER_BUSHEL, mapping disclosed as PROXY/FALLBACK",
+    "soybean_meal": "commodity=Soybean Meal, unit=USD_PER_SHORT_TON, sale_type preserved honestly",
+    "hrw_wheat": "commodity=Wheat, class=Hard Red Winter/HRW, sale_type=Bid, unit=USD_PER_BUSHEL",
+    "srw_wheat": "commodity=Wheat, class=Soft Red Winter/SRW, sale_type=Bid, unit=USD_PER_BUSHEL"
+  },
+  "price_cleaning_logic": [
+    "Prefer value = avg_price.",
+    "If avg_price is missing, use value = (price_min + price_max) / 2.",
+    "If only one side exists, use the available price_min or price_max.",
+    "No scaling, z-score, or model transformation is applied."
+  ],
+  "group_results": [
+    {
+      "series_key": "CORN_DECATUR_PROXY",
+      "document_target": "CORN_DECATUR",
+      "source_id": "USDA_AMS_CORN_ILLINOIS_PROXY_FOR_DECATUR",
+      "instrument": "CORN",
+      "delivery_point": "ILLINOIS_GRAIN_BID_PROXY_FOR_DECATUR",
+      "source_mapping_status": "PROXY",
+      "proxy_for": "CORN_DECATUR",
+      "record_count": 30,
+      "latest_timestamp": "05/22/2026",
+      "latest_value": 4.5283,
+      "expected_unit": "USD_PER_BUSHEL",
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "Strict Decatur corn bid was not found in USDA MARS broad search; Illinois grain-bid source is used as the closest searchable proxy."
+      ],
+      "reject_counts": {
+        "commodity_mismatch": 38684,
+        "price_unit_mismatch": 71
+      }
+    },
+    {
+      "series_key": "CORN_GULF_PROXY",
+      "document_target": "CORN_GULF",
+      "source_id": "USDA_AMS_CORN_BARGE_TERMINAL_PROXY_FOR_GULF",
+      "instrument": "CORN",
+      "delivery_point": "BARGE_TERMINAL_PROXY_FOR_GULF",
+      "source_mapping_status": "PROXY",
+      "proxy_for": "CORN_GULF",
+      "record_count": 30,
+      "latest_timestamp": "05/22/2026",
+      "latest_value": 4.515,
+      "expected_unit": "USD_PER_BUSHEL",
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "Strict Gulf/New Orleans corn bid was not found in USDA MARS broad search; barge/terminal corn bids are used as the closest searchable proxy."
+      ],
+      "reject_counts": {
+        "commodity_mismatch": 8942,
+        "price_unit_mismatch": 2
+      }
+    },
+    {
+      "series_key": "CORN_COUNTRY_ELEVATOR_OK_FALLBACK",
+      "document_target": "CORN_FALLBACK",
+      "source_id": "USDA_AMS_CORN_OK_COUNTRY_ELEVATOR_BID",
+      "instrument": "CORN",
+      "delivery_point": "OKLAHOMA_COUNTRY_ELEVATORS",
+      "source_mapping_status": "FALLBACK",
+      "proxy_for": null,
+      "record_count": 30,
+      "latest_timestamp": "05/22/2026",
+      "latest_value": 4.6325,
+      "expected_unit": "USD_PER_BUSHEL",
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "Clean USDA corn country-elevator bid fallback. It is not Decatur/Gulf."
+      ],
+      "reject_counts": {
+        "commodity_mismatch": 63977,
+        "price_unit_mismatch": 5
+      }
+    },
+    {
+      "series_key": "SOYBEAN_MEAL",
+      "document_target": "SOYBEAN_MEAL",
+      "source_id": "USDA_AMS_SOYBEAN_MEAL_NATIONAL",
+      "instrument": "SOYBEAN_MEAL",
+      "delivery_point": "NATIONAL_PROCESSOR_FEEDSTUFF",
+      "source_mapping_status": "STRICT",
+      "proxy_for": null,
+      "record_count": 30,
+      "latest_timestamp": "05/18/2026",
+      "latest_value": 433.4,
+      "expected_unit": "USD_PER_SHORT_TON",
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "Soybean meal records are not Bid in the fetched USDA feedstuff source; sale_type is preserved honestly."
+      ],
+      "reject_counts": {
+        "commodity_mismatch": 12667,
+        "invalid_price": 3
+      }
+    },
+    {
+      "series_key": "HRW_WHEAT",
+      "document_target": "HRW_WHEAT",
+      "source_id": "USDA_AMS_HRW_WHEAT_KANSAS_BID",
+      "instrument": "HRW_WHEAT",
+      "delivery_point": "KANSAS_GRAIN_BIDS",
+      "source_mapping_status": "STRICT",
+      "proxy_for": null,
+      "record_count": 30,
+      "latest_timestamp": "05/22/2026",
+      "latest_value": 6.52,
+      "expected_unit": "USD_PER_BUSHEL",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "reject_counts": {
+        "class_mismatch": 6976,
+        "commodity_mismatch": 49413
+      }
+    },
+    {
+      "series_key": "SRW_WHEAT",
+      "document_target": "SRW_WHEAT",
+      "source_id": "USDA_AMS_SRW_WHEAT_BID",
+      "instrument": "SRW_WHEAT",
+      "delivery_point": "US_SRW_GRAIN_BIDS",
+      "source_mapping_status": "STRICT",
+      "proxy_for": null,
+      "record_count": 30,
+      "latest_timestamp": "05/22/2026",
+      "latest_value": 7.9625,
+      "expected_unit": "USD_PER_BUSHEL",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "reject_counts": {
+        "commodity_mismatch": 59979,
+        "sale_type_mismatch": 209,
+        "price_unit_mismatch": 17
+      }
+    }
+  ]
+}
