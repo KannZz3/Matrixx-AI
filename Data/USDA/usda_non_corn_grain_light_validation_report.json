@@ -1,0 +1,109 @@
+{
+  "validated_at": "2026-05-25T04:21:18+00:00",
+  "stage": "USDA_NON_CORN_V2_LIGHT_VALIDATION",
+  "document_requirement_scope": [
+    "SOYBEAN_MEAL",
+    "HRW_WHEAT",
+    "SRW_WHEAT",
+    "CORN_DECATUR and CORN_GULF handled separately"
+  ],
+  "all_required_ok": true,
+  "total_records": 90,
+  "required_output_fields": [
+    "source_id",
+    "instrument",
+    "delivery_point",
+    "timestamp",
+    "data_type",
+    "value",
+    "unit",
+    "basis_vs_futures",
+    "futures_contract",
+    "tos_status",
+    "gatekeeper_cleared",
+    "gatekeeper_id",
+    "raw_source_url",
+    "series_key",
+    "slug_id",
+    "report_title",
+    "commodity_raw"
+  ],
+  "validation_rules": {
+    "record_count": "1 to 30 records per target",
+    "value": "numeric and > 0",
+    "unit": "must match target normalized unit",
+    "basis_vs_futures": "must be null in Step 5 before futures leg",
+    "futures_contract": "must be null in Step 5 before futures leg",
+    "source_provenance": "raw_source_url, slug_id, report_title required",
+    "target_filters": {
+      "SOYBEAN_MEAL": "commodity=Soybean Meal, price_unit=$ Per Ton",
+      "HRW_WHEAT": "commodity=Wheat, class=Hard Red Winter/HRW, price_unit=$ Per Bushel, sale_type=Bid",
+      "SRW_WHEAT": "commodity=Wheat, class=Soft Red Winter/SRW, price_unit=$ Per Bushel, sale_type=Bid"
+    }
+  },
+  "price_cleaning_logic": [
+    "Prefer value = avg_price.",
+    "If avg_price is missing, use value = (price_min + price_max) / 2.",
+    "If only one side exists, use the available price_min or price_max.",
+    "No scaling, z-score, or model transformation is applied."
+  ],
+  "group_results": [
+    {
+      "series_key": "SOYBEAN_MEAL",
+      "source_id": "USDA_AMS_SOYBEAN_MEAL_NATIONAL",
+      "instrument": "SOYBEAN_MEAL",
+      "delivery_point": "NATIONAL_PROCESSOR_FEEDSTUFF",
+      "expected_unit": "USD_PER_SHORT_TON",
+      "record_count": 30,
+      "latest_timestamp": "05/18/2026",
+      "latest_value": 433.4,
+      "ok": true,
+      "errors": [],
+      "warnings": [
+        "Soybean meal USDA feedstuff records are not Bid; sale_type is preserved honestly, commonly Ask."
+      ],
+      "reject_counts": {
+        "commodity_mismatch": 12667,
+        "invalid_price": 3
+      },
+      "expected_note": "Soybean meal from National Grain and Oilseed Processor Feedstuff Report; sale_type may be Ask."
+    },
+    {
+      "series_key": "HRW_WHEAT",
+      "source_id": "USDA_AMS_HRW_WHEAT_KANSAS_BID",
+      "instrument": "HRW_WHEAT",
+      "delivery_point": "KANSAS_GRAIN_BIDS",
+      "expected_unit": "USD_PER_BUSHEL",
+      "record_count": 30,
+      "latest_timestamp": "05/22/2026",
+      "latest_value": 6.52,
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "reject_counts": {
+        "class_mismatch": 6976,
+        "commodity_mismatch": 49413
+      },
+      "expected_note": "Hard Red Winter wheat bids from Kansas Daily Grain Bids."
+    },
+    {
+      "series_key": "SRW_WHEAT",
+      "source_id": "USDA_AMS_SRW_WHEAT_BID",
+      "instrument": "SRW_WHEAT",
+      "delivery_point": "US_SRW_GRAIN_BIDS",
+      "expected_unit": "USD_PER_BUSHEL",
+      "record_count": 30,
+      "latest_timestamp": "05/22/2026",
+      "latest_value": 7.9625,
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "reject_counts": {
+        "commodity_mismatch": 59979,
+        "sale_type_mismatch": 209,
+        "price_unit_mismatch": 17
+      },
+      "expected_note": "Soft Red Winter wheat bids from validated USDA grain bid reports."
+    }
+  ]
+}
