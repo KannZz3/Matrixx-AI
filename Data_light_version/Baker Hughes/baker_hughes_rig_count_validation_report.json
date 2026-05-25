@@ -1,0 +1,111 @@
+{
+  "validated_at": "2026-05-25T21:16:27+00:00",
+  "stage": "BAKER_HUGHES_STEP7_RIG_COUNT_VALIDATION_LIGHT_V4",
+  "all_required_ok": true,
+  "local_file": "C:\\Users\\78432\\Downloads\\05-22-2026 North_America Rig_Count Report.xlsx",
+  "source_sheet": "NAM Weekly",
+  "record_count": 125,
+  "earliest_date": "2024-01-05",
+  "latest_date": "2026-05-22",
+  "latest": {
+    "source_id": "BAKER_HUGHES_RIG_COUNT_WEEKLY",
+    "instrument": "US_RIG_COUNT",
+    "timestamp": "2026-05-22",
+    "data_type": "RIG_COUNT",
+    "oil_rigs": 425,
+    "gas_rigs": 125,
+    "misc_rigs": 8,
+    "total_rigs": 558,
+    "oil_rigs_delta_1w": 10,
+    "gas_rigs_delta_1w": -3,
+    "misc_rigs_delta_1w": 0,
+    "total_rigs_delta_1w": 7,
+    "energy_scarcity_trigger": false,
+    "oil_scarcity_trigger": false,
+    "gas_scarcity_trigger": false,
+    "total_scarcity_trigger": false,
+    "trigger_components": {
+      "oil_scarcity_trigger": false,
+      "gas_scarcity_trigger": false,
+      "total_scarcity_trigger": false
+    },
+    "trigger_threshold": -10,
+    "trigger_reason": "No oil/gas/total rig category fell by 10 or more WoW.",
+    "directional_bias": "neutral_energy_supply_signal",
+    "confidence": "low",
+    "unit": "RIG_COUNT",
+    "frequency": "WEEKLY",
+    "tos_status": "GO",
+    "gatekeeper_cleared": true,
+    "gatekeeper_id": "LOCAL_PROTO",
+    "raw_source_url": "LOCAL_FILE:C:\\Users\\78432\\Downloads\\05-22-2026 North_America Rig_Count Report.xlsx",
+    "raw_file_name": "05-22-2026 North_America Rig_Count Report.xlsx",
+    "source_sheet": "NAM Weekly",
+    "normalized_at": "2026-05-25T21:16:27+00:00"
+  },
+  "parse_metadata": {
+    "parser": "NAM_WEEKLY_LONG_TABLE_V4",
+    "source_sheet": "NAM Weekly",
+    "header_row_zero_indexed": 10,
+    "required_columns": [
+      "Country",
+      "DrillFor",
+      "US_PublishDate",
+      "Rig Count Value"
+    ],
+    "columns_seen": [
+      "Country",
+      "County",
+      "Basin",
+      "GOM",
+      "DrillFor",
+      "Location",
+      "State/Province",
+      "Trajectory",
+      "Year",
+      "Month",
+      "US_PublishDate",
+      "Rig Count Value"
+    ],
+    "rows_before_filter": 23344,
+    "rows_after_us_oil_gas_misc_filter": 20564,
+    "weekly_record_count": 125,
+    "earliest_date": "2024-01-05",
+    "latest_date": "2026-05-22",
+    "drillfor_values_seen_after_normalization": [
+      "Gas",
+      "Miscellaneous",
+      "Oil"
+    ],
+    "country_filter": "UNITED STATES",
+    "aggregation": "sum Rig Count Value by US_PublishDate and DrillFor"
+  },
+  "trigger_rule": "oil/gas/total rig count delta <= -10 triggers energy_scarcity_trigger",
+  "validation_rules": {
+    "local_only": "No web request is made in v4.",
+    "sheet_identity": "Must parse NAM Weekly long-table sheet.",
+    "country_filter": "Country == UNITED STATES.",
+    "aggregation": "Sum Rig Count Value by US_PublishDate and DrillFor.",
+    "required_fields": [
+      "timestamp",
+      "oil_rigs",
+      "gas_rigs",
+      "misc_rigs",
+      "total_rigs"
+    ],
+    "total_consistency": "total_rigs must equal oil_rigs + gas_rigs + misc_rigs.",
+    "minimum_history": "At least two weekly records required for WoW delta.",
+    "weekly_frequency": "Recent date gaps should mostly be 5-10 days and latest gap must be 5-10 days.",
+    "trigger_logic": "Each scarcity trigger must equal delta <= -10.",
+    "freshness": "Latest date must be within 21 days.",
+    "retention": "Most recent 260 weekly records by default."
+  },
+  "errors": [],
+  "warnings": [],
+  "retention_policy": {
+    "limit_weeks": 260,
+    "records_before_limit": 125,
+    "records_retained": 125,
+    "description": "Validation is performed on the retained most-recent weekly records."
+  }
+}
