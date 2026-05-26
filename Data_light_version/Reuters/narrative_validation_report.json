@@ -1,0 +1,412 @@
+{
+  "validated_at": "2026-05-26T21:47:54+00:00",
+  "stage": "REUTERS_EIA_NARRATIVE_STEP10_VALIDATION_LIGHT_V1_6",
+  "all_required_ok": true,
+  "record_count": 57,
+  "target_coverage_summary": [
+    {
+      "target_commodity": "CL",
+      "target_fetch_rank": 1,
+      "target_minimum": 30,
+      "raw_matched_total_before_dedup_lookback": 76,
+      "normalized_count_after_dedup_lookback": 10,
+      "coverage_status": "BELOW_TARGET_BUT_VALID",
+      "enabled_sources": [
+        "eia",
+        "reuters_proxy"
+      ]
+    },
+    {
+      "target_commodity": "NG",
+      "target_fetch_rank": 2,
+      "target_minimum": 30,
+      "raw_matched_total_before_dedup_lookback": 79,
+      "normalized_count_after_dedup_lookback": 22,
+      "coverage_status": "BELOW_TARGET_BUT_VALID",
+      "enabled_sources": [
+        "eia",
+        "reuters_proxy"
+      ]
+    },
+    {
+      "target_commodity": "HO",
+      "target_fetch_rank": 3,
+      "target_minimum": 30,
+      "raw_matched_total_before_dedup_lookback": 4,
+      "normalized_count_after_dedup_lookback": 1,
+      "coverage_status": "BELOW_TARGET_BUT_VALID",
+      "enabled_sources": [
+        "eia",
+        "reuters_proxy"
+      ]
+    },
+    {
+      "target_commodity": "RB",
+      "target_fetch_rank": 4,
+      "target_minimum": 30,
+      "raw_matched_total_before_dedup_lookback": 7,
+      "normalized_count_after_dedup_lookback": 3,
+      "coverage_status": "BELOW_TARGET_BUT_VALID",
+      "enabled_sources": [
+        "eia",
+        "reuters_proxy"
+      ]
+    },
+    {
+      "target_commodity": "ZC",
+      "target_fetch_rank": 5,
+      "target_minimum": 30,
+      "raw_matched_total_before_dedup_lookback": 11,
+      "normalized_count_after_dedup_lookback": 0,
+      "coverage_status": "BELOW_TARGET_BUT_VALID",
+      "enabled_sources": [
+        "eia",
+        "reuters_proxy"
+      ]
+    },
+    {
+      "target_commodity": "ZS",
+      "target_fetch_rank": 6,
+      "target_minimum": 30,
+      "raw_matched_total_before_dedup_lookback": 35,
+      "normalized_count_after_dedup_lookback": 3,
+      "coverage_status": "BELOW_TARGET_BUT_VALID",
+      "enabled_sources": [
+        "eia",
+        "reuters_proxy"
+      ]
+    },
+    {
+      "target_commodity": "ZW",
+      "target_fetch_rank": 7,
+      "target_minimum": 30,
+      "raw_matched_total_before_dedup_lookback": 32,
+      "normalized_count_after_dedup_lookback": 2,
+      "coverage_status": "BELOW_TARGET_BUT_VALID",
+      "enabled_sources": [
+        "eia",
+        "reuters_proxy"
+      ]
+    },
+    {
+      "target_commodity": "GC",
+      "target_fetch_rank": 8,
+      "target_minimum": 30,
+      "raw_matched_total_before_dedup_lookback": 99,
+      "normalized_count_after_dedup_lookback": 14,
+      "coverage_status": "BELOW_TARGET_BUT_VALID",
+      "enabled_sources": [
+        "eia",
+        "reuters_proxy"
+      ]
+    },
+    {
+      "target_commodity": "SI",
+      "target_fetch_rank": 9,
+      "target_minimum": 30,
+      "raw_matched_total_before_dedup_lookback": 20,
+      "normalized_count_after_dedup_lookback": 2,
+      "coverage_status": "BELOW_TARGET_BUT_VALID",
+      "enabled_sources": [
+        "eia",
+        "reuters_proxy"
+      ]
+    }
+  ],
+  "feed_results": [
+    {
+      "feed_name": "reuters_proxy",
+      "target_commodity": "CL",
+      "target_fetch_rank": 1,
+      "target_keyword_query": "Reuters commodities crude oil WTI Brent oil inventories OPEC",
+      "feed_url": "https://news.google.com/rss/search?q=site%3Areuters.com+Reuters+commodities+crude+oil+WTI+Brent+oil+inventories+OPEC&hl=en-US&gl=US&ceid=US:en",
+      "ok": true,
+      "fetched": true,
+      "parsed_count": 100,
+      "target_matched_count": 68,
+      "normalized_count": 2,
+      "latest_published_at": "2026-05-22T21:14:01+00:00",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "feed_name": "eia",
+      "target_commodity": "CL",
+      "target_fetch_rank": 1,
+      "target_keyword_query": "EIA Today in Energy filtered by CL keywords",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "ok": true,
+      "fetched": true,
+      "parsed_count": 28,
+      "target_matched_count": 8,
+      "normalized_count": 8,
+      "latest_published_at": "2026-05-26T14:00:00+00:00",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "feed_name": "reuters_proxy",
+      "target_commodity": "NG",
+      "target_fetch_rank": 2,
+      "target_keyword_query": "Reuters commodities natural gas LNG Henry Hub gas storage",
+      "feed_url": "https://news.google.com/rss/search?q=site%3Areuters.com+Reuters+commodities+natural+gas+LNG+Henry+Hub+gas+storage&hl=en-US&gl=US&ceid=US:en",
+      "ok": true,
+      "fetched": true,
+      "parsed_count": 100,
+      "target_matched_count": 67,
+      "normalized_count": 10,
+      "latest_published_at": "2026-05-19T15:34:17+00:00",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "feed_name": "eia",
+      "target_commodity": "NG",
+      "target_fetch_rank": 2,
+      "target_keyword_query": "EIA Today in Energy filtered by NG keywords",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "ok": true,
+      "fetched": true,
+      "parsed_count": 28,
+      "target_matched_count": 12,
+      "normalized_count": 12,
+      "latest_published_at": "2026-05-26T14:00:00+00:00",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "feed_name": "reuters_proxy",
+      "target_commodity": "HO",
+      "target_fetch_rank": 3,
+      "target_keyword_query": "Reuters diesel heating oil distillates refinery fuel stocks ULSD",
+      "feed_url": "https://news.google.com/rss/search?q=site%3Areuters.com+Reuters+diesel+heating+oil+distillates+refinery+fuel+stocks+ULSD&hl=en-US&gl=US&ceid=US:en",
+      "ok": true,
+      "fetched": true,
+      "parsed_count": 6,
+      "target_matched_count": 3,
+      "normalized_count": 0,
+      "latest_published_at": "2026-04-27T07:00:00+00:00",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "feed_name": "eia",
+      "target_commodity": "HO",
+      "target_fetch_rank": 3,
+      "target_keyword_query": "EIA Today in Energy filtered by HO keywords",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "ok": true,
+      "fetched": true,
+      "parsed_count": 28,
+      "target_matched_count": 1,
+      "normalized_count": 1,
+      "latest_published_at": "2026-05-26T14:00:00+00:00",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "feed_name": "reuters_proxy",
+      "target_commodity": "RB",
+      "target_fetch_rank": 4,
+      "target_keyword_query": "Reuters gasoline RBOB fuel demand refinery gasoline stocks",
+      "feed_url": "https://news.google.com/rss/search?q=site%3Areuters.com+Reuters+gasoline+RBOB+fuel+demand+refinery+gasoline+stocks&hl=en-US&gl=US&ceid=US:en",
+      "ok": true,
+      "fetched": true,
+      "parsed_count": 14,
+      "target_matched_count": 4,
+      "normalized_count": 0,
+      "latest_published_at": "2025-08-14T07:00:00+00:00",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "feed_name": "eia",
+      "target_commodity": "RB",
+      "target_fetch_rank": 4,
+      "target_keyword_query": "EIA Today in Energy filtered by RB keywords",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "ok": true,
+      "fetched": true,
+      "parsed_count": 28,
+      "target_matched_count": 3,
+      "normalized_count": 3,
+      "latest_published_at": "2026-05-26T14:00:00+00:00",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "feed_name": "reuters_proxy",
+      "target_commodity": "ZC",
+      "target_fetch_rank": 5,
+      "target_keyword_query": "Reuters corn maize grains crop export sales ethanol",
+      "feed_url": "https://news.google.com/rss/search?q=site%3Areuters.com+Reuters+corn+maize+grains+crop+export+sales+ethanol&hl=en-US&gl=US&ceid=US:en",
+      "ok": true,
+      "fetched": true,
+      "parsed_count": 18,
+      "target_matched_count": 11,
+      "normalized_count": 0,
+      "latest_published_at": "2026-03-02T08:00:00+00:00",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "feed_name": "eia",
+      "target_commodity": "ZC",
+      "target_fetch_rank": 5,
+      "target_keyword_query": "EIA Today in Energy filtered by ZC keywords",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "ok": true,
+      "fetched": true,
+      "parsed_count": 28,
+      "target_matched_count": 0,
+      "normalized_count": 0,
+      "latest_published_at": "2026-05-26T14:00:00+00:00",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "feed_name": "reuters_proxy",
+      "target_commodity": "ZS",
+      "target_fetch_rank": 6,
+      "target_keyword_query": "Reuters soybeans soybean oil soymeal crop exports China",
+      "feed_url": "https://news.google.com/rss/search?q=site%3Areuters.com+Reuters+soybeans+soybean+oil+soymeal+crop+exports+China&hl=en-US&gl=US&ceid=US:en",
+      "ok": true,
+      "fetched": true,
+      "parsed_count": 95,
+      "target_matched_count": 35,
+      "normalized_count": 3,
+      "latest_published_at": "2026-05-26T09:19:43+00:00",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "feed_name": "eia",
+      "target_commodity": "ZS",
+      "target_fetch_rank": 6,
+      "target_keyword_query": "EIA Today in Energy filtered by ZS keywords",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "ok": true,
+      "fetched": true,
+      "parsed_count": 28,
+      "target_matched_count": 0,
+      "normalized_count": 0,
+      "latest_published_at": "2026-05-26T14:00:00+00:00",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "feed_name": "reuters_proxy",
+      "target_commodity": "ZW",
+      "target_fetch_rank": 7,
+      "target_keyword_query": "Reuters wheat grain Black Sea crop exports Russia Ukraine",
+      "feed_url": "https://news.google.com/rss/search?q=site%3Areuters.com+Reuters+wheat+grain+Black+Sea+crop+exports+Russia+Ukraine&hl=en-US&gl=US&ceid=US:en",
+      "ok": true,
+      "fetched": true,
+      "parsed_count": 100,
+      "target_matched_count": 32,
+      "normalized_count": 2,
+      "latest_published_at": "2026-05-04T07:00:00+00:00",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "feed_name": "eia",
+      "target_commodity": "ZW",
+      "target_fetch_rank": 7,
+      "target_keyword_query": "EIA Today in Energy filtered by ZW keywords",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "ok": true,
+      "fetched": true,
+      "parsed_count": 28,
+      "target_matched_count": 0,
+      "normalized_count": 0,
+      "latest_published_at": "2026-05-26T14:00:00+00:00",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "feed_name": "reuters_proxy",
+      "target_commodity": "GC",
+      "target_fetch_rank": 8,
+      "target_keyword_query": "Reuters commodities gold bullion precious metals dollar yields",
+      "feed_url": "https://news.google.com/rss/search?q=site%3Areuters.com+Reuters+commodities+gold+bullion+precious+metals+dollar+yields&hl=en-US&gl=US&ceid=US:en",
+      "ok": true,
+      "fetched": true,
+      "parsed_count": 100,
+      "target_matched_count": 99,
+      "normalized_count": 14,
+      "latest_published_at": "2026-05-26T01:18:00+00:00",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "feed_name": "eia",
+      "target_commodity": "GC",
+      "target_fetch_rank": 8,
+      "target_keyword_query": "EIA Today in Energy filtered by GC keywords",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "ok": true,
+      "fetched": true,
+      "parsed_count": 28,
+      "target_matched_count": 0,
+      "normalized_count": 0,
+      "latest_published_at": "2026-05-26T14:00:00+00:00",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "feed_name": "reuters_proxy",
+      "target_commodity": "SI",
+      "target_fetch_rank": 9,
+      "target_keyword_query": "Reuters silver precious metals industrial demand solar gold/silver",
+      "feed_url": "https://news.google.com/rss/search?q=site%3Areuters.com+Reuters+silver+precious+metals+industrial+demand+solar+gold%2Fsilver&hl=en-US&gl=US&ceid=US:en",
+      "ok": true,
+      "fetched": true,
+      "parsed_count": 52,
+      "target_matched_count": 20,
+      "normalized_count": 2,
+      "latest_published_at": "2026-05-13T07:00:00+00:00",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "feed_name": "eia",
+      "target_commodity": "SI",
+      "target_fetch_rank": 9,
+      "target_keyword_query": "EIA Today in Energy filtered by SI keywords",
+      "feed_url": "https://www.eia.gov/rss/todayinenergy.xml",
+      "ok": true,
+      "fetched": true,
+      "parsed_count": 28,
+      "target_matched_count": 0,
+      "normalized_count": 0,
+      "latest_published_at": "2026-05-26T14:00:00+00:00",
+      "errors": [],
+      "warnings": []
+    }
+  ],
+  "errors": [],
+  "warnings": [
+    "Reuters default feed is a Google News Reuters commodities proxy, not official Reuters RSS. Use --reuters-feed for official Reuters RSS if available.",
+    "Target CL has 10 normalized events within lookback, below target minimum 30. Kept all available real records; no backfill/duplication; pipeline continues.",
+    "Target NG has 22 normalized events within lookback, below target minimum 30. Kept all available real records; no backfill/duplication; pipeline continues.",
+    "Target HO has 1 normalized events within lookback, below target minimum 30. Kept all available real records; no backfill/duplication; pipeline continues.",
+    "Target RB has 3 normalized events within lookback, below target minimum 30. Kept all available real records; no backfill/duplication; pipeline continues.",
+    "Target ZC has 0 normalized events within lookback, below target minimum 30. Kept all available real records; no backfill/duplication; pipeline continues.",
+    "Target ZS has 3 normalized events within lookback, below target minimum 30. Kept all available real records; no backfill/duplication; pipeline continues.",
+    "Target ZW has 2 normalized events within lookback, below target minimum 30. Kept all available real records; no backfill/duplication; pipeline continues.",
+    "Target GC has 14 normalized events within lookback, below target minimum 30. Kept all available real records; no backfill/duplication; pipeline continues.",
+    "Target SI has 2 normalized events within lookback, below target minimum 30. Kept all available real records; no backfill/duplication; pipeline continues."
+  ],
+  "validation_rules": {
+    "feeds": "At least one Reuters/EIA feed must fetch successfully.",
+    "no_full_article_text": "Full article body is not fetched or stored.",
+    "reuters_policy": "Reuters official/proxy records must be REVIEW_PARAPHRASE_ONLY.",
+    "feed_requirements": "Enabled feeds are validated by aggregated feed status across target-level metadata.",
+    "direction": "Direction must be BULLISH / BEARISH / MIXED / NEUTRAL / UNKNOWN.",
+    "confidence": "confidence_score must be numeric in [0, 1].",
+    "deduplication": "raw_text_hash must be unique within each target_commodity.",
+    "target_first_collection": "Reuters proxy is queried one commodity at a time; target minimum is coverage guidance, not a hard validation failure.",
+    "target_coverage": "Target minimum is checked only after source merge, target-aware deduplication, and lookback filtering."
+  }
+}
